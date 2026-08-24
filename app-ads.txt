@@ -1,0 +1,6 @@
+# app-ads.txt — Be the One (com.weekom.betheone)
+# Déclare qui a le droit de vendre de la publicité au nom de cette app.
+# Publié à la racine du domaine développeur déclaré sur la fiche App Store,
+# c'est-à-dire https://kenshin743.github.io/app-ads.txt — jamais dans un
+# sous-dossier, AdMob ne regarde que la racine.
+google.com, pub-7445333067188299, DIRECT, f08c47fec0942fa0
