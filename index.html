@@ -1,0 +1,129 @@
+<!--
+  Page racine du domaine développeur — https://kenshin743.github.io/
+
+  Elle existe pour deux raisons, et la seconde n'est pas décorative :
+
+    · c'est le « site web du développeur » déclaré sur la fiche App Store
+      (`marketingUrl`). Un joueur qui clique dessus doit tomber sur quelque chose ;
+    · AdMob cherche `app-ads.txt` **à la racine de ce domaine**. Le fichier y vit
+      déjà, mais tant qu'aucune fiche ne déclare le domaine, personne ne va le lire.
+
+  ⚠️ Cette page et `app-ads.txt` vivent dans le **même dépôt**, `kenshin743.github.io`,
+  le seul qui serve la racine du domaine. Les pages de confidentialité et d'assistance,
+  elles, sont dans leurs propres dépôts et servent des sous-dossiers.
+
+  Même palette et même typographie que les deux autres pages publiées.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fathi Rouassi — Développeur</title>
+<style>
+  :root {
+    --field: #080B16;
+    --edge: #1C2440;
+    --bone: #E8EAF0;
+    --dim: #8A93B0;
+    --accent: #2BE0B0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 20px 96px;
+    background: var(--field);
+    color: var(--bone);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: "Avenir Next Condensed", "Arial Narrow", Impact, sans-serif;
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+  }
+  .label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  h2 {
+    font-family: "Avenir Next Condensed", "Arial Narrow", Impact, sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    margin: 44px 0 10px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  p, li { color: #C8CEE0; }
+  a { color: var(--accent); }
+  hr { border: 0; border-top: 1px solid var(--edge); margin: 64px 0 0; }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .card {
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 22px 0 0;
+  }
+  .card p { margin: 0; }
+  .card p + p { margin-top: 8px; }
+</style>
+
+<main>
+
+<p class="label">Fathi Rouassi</p>
+<h1>Be the One</h1>
+<p class="label">Jeu de score compétitif pour iPhone</p>
+
+<h2>L'app</h2>
+<p>
+  Des cibles descendent en continu. Frappe les disques pleins, laisse tomber les
+  anneaux creux. Une seule erreur met fin à la course. Le classement est mondial, et
+  le parcours est le même pour tout le monde.
+</p>
+<p>
+  <a href="https://apps.apple.com/app/id6799762026">Voir sur l'App Store</a>
+</p>
+
+<h2>Assistance et confidentialité</h2>
+<ul>
+  <li><a href="https://kenshin743.github.io/bethenone-support/">Assistance</a></li>
+  <li><a href="https://kenshin743.github.io/bethenone-privacy/">Politique de confidentialité</a></li>
+</ul>
+
+<h2>Contact</h2>
+<div class="card">
+  <p>Pour toute question, y compris sur vos données :</p>
+  <p><a href="mailto:rouassif@me.com">rouassif@me.com</a></p>
+</div>
+
+<hr>
+
+<p class="label" id="english">Fathi Rouassi</p>
+<h1>Be the One</h1>
+<p class="label">Competitive score game for iPhone</p>
+
+<h2>The app</h2>
+<p>
+  Targets keep falling. Hit the solid discs, let the hollow rings fall. A single
+  mistake ends the run. The ranking is worldwide, and everyone plays the same course.
+</p>
+<p>
+  <a href="https://apps.apple.com/app/id6799762026">View on the App Store</a>
+</p>
+
+<h2>Support and privacy</h2>
+<ul>
+  <li><a href="https://kenshin743.github.io/bethenone-support/">Support</a></li>
+  <li><a href="https://kenshin743.github.io/bethenone-privacy/">Privacy Policy</a></li>
+</ul>
+
+<h2>Contact</h2>
+<div class="card">
+  <p>For any question, including about your data:</p>
+  <p><a href="mailto:rouassif@me.com">rouassif@me.com</a></p>
+</div>
+
+</main>
