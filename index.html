@@ -12,11 +12,17 @@
   le seul qui serve la racine du domaine. Les pages de confidentialité et d'assistance,
   elles, sont dans leurs propres dépôts et servent des sous-dossiers.
 
+  ⚠️ **Une seule langue à la fois.** La version précédente empilait le français puis
+  l'anglais séparés par un filet : tout lecteur voyait la moitié de la page dans une
+  langue qu'il ne lisait pas. Désormais la page suit `navigator.language`, exactement
+  comme le jeu suit la langue de l'appareil — et un discret sélecteur permet d'en
+  changer. Sans JavaScript, le français reste visible : mieux vaut une langue que rien.
+
   Même palette et même typographie que les deux autres pages publiées.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fathi Rouassi — Développeur</title>
+<title>Fathi Rouassi — Be the One</title>
 <style>
   :root {
     --field: #080B16;
@@ -58,7 +64,6 @@
   }
   p, li { color: #C8CEE0; }
   a { color: var(--accent); }
-  hr { border: 0; border-top: 1px solid var(--edge); margin: 64px 0 0; }
   ul { padding-left: 22px; }
   li { margin: 6px 0; }
   .card {
@@ -69,9 +74,47 @@
   }
   .card p { margin: 0; }
   .card p + p { margin-top: 8px; }
+
+  /* Le sélecteur de langue : deux boutons discrets, alignés à droite au-dessus du
+     titre. Assez visibles pour être trouvés, assez sobres pour ne pas voler la
+     vedette au nom du jeu. */
+  .langues {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    max-width: 680px;
+    margin: 0 auto 28px;
+  }
+  .langues button {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    background: none;
+    border: 1px solid var(--edge);
+    border-radius: 4px;
+    padding: 5px 11px;
+    cursor: pointer;
+  }
+  .langues button[aria-pressed="true"] {
+    color: var(--field);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .langues button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Sans JavaScript, `[hidden]` ne s'applique jamais : le français s'affiche, et
+     l'anglais reste caché par cette règle. Une langue vaut mieux que deux empilées. */
+  [lang="en"] { display: none; }
 </style>
 
-<main>
+<div class="langues">
+  <button type="button" data-lang="fr" aria-pressed="true">Français</button>
+  <button type="button" data-lang="en" aria-pressed="false">English</button>
+</div>
+
+<main lang="fr">
 
 <p class="label">Fathi Rouassi</p>
 <h1>Be the One</h1>
@@ -80,8 +123,8 @@
 <h2>L'app</h2>
 <p>
   Des cibles descendent en continu. Frappe les disques pleins, laisse tomber les
-  anneaux creux. Une seule erreur met fin à la course. Le classement est mondial, et
-  le parcours est le même pour tout le monde.
+  anneaux creux. Une seule erreur met fin à la course. Ton classement mondial est
+  affiché pendant la partie et remonte à chaque cible touchée.
 </p>
 <p>
   <a href="https://apps.apple.com/app/id6799762026">Voir sur l'App Store</a>
@@ -99,16 +142,19 @@
   <p><a href="mailto:rouassif@me.com">rouassif@me.com</a></p>
 </div>
 
-<hr>
+</main>
 
-<p class="label" id="english">Fathi Rouassi</p>
+<main lang="en" hidden>
+
+<p class="label">Fathi Rouassi</p>
 <h1>Be the One</h1>
 <p class="label">Competitive score game for iPhone</p>
 
 <h2>The app</h2>
 <p>
   Targets keep falling. Hit the solid discs, let the hollow rings fall. A single
-  mistake ends the run. The ranking is worldwide, and everyone plays the same course.
+  mistake ends the run. Your world ranking sits on screen while you play and climbs
+  with every target you hit.
 </p>
 <p>
   <a href="https://apps.apple.com/app/id6799762026">View on the App Store</a>
@@ -127,3 +173,27 @@
 </div>
 
 </main>
+
+<script>
+  // La langue suit le navigateur, sans réglage — même principe que dans le jeu, où
+  // elle suit l'appareil. Tout ce qui n'est pas français bascule en anglais : c'est
+  // la langue par défaut de la fiche App Store, donc le meilleur repli.
+  const sections = document.querySelectorAll("main");
+  const boutons = document.querySelectorAll(".langues button");
+
+  function afficher(langue) {
+    sections.forEach(s => {
+      const ok = s.lang === langue;
+      s.hidden = !ok;
+      // On lève aussi la règle CSS de repli, qui masque l'anglais sans JavaScript.
+      s.style.display = ok ? "block" : "none";
+    });
+    boutons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === langue)));
+    document.documentElement.lang = langue;
+  }
+
+  const preferee = (navigator.language || "fr").toLowerCase().startsWith("fr") ? "fr" : "en";
+  afficher(preferee);
+
+  boutons.forEach(b => b.addEventListener("click", () => afficher(b.dataset.lang)));
+</script>
