@@ -105,8 +105,12 @@
   .langues button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* Sans JavaScript, `[hidden]` ne s'applique jamais : le français s'affiche, et
-     l'anglais reste caché par cette règle. Une langue vaut mieux que deux empilées. */
-  [lang="en"] { display: none; }
+     l'anglais reste caché par cette règle. Une langue vaut mieux que deux empilées.
+
+     ⚠️ Le sélecteur DOIT être limité à `main`. Écrit `[lang="en"]` tout court, il
+     visait aussi la balise `<html>` — sur laquelle le script pose la langue choisie —
+     et cliquer sur « English » effaçait la page entière. Corrigé le 30 août 2026. */
+  main[lang="en"] { display: none; }
 </style>
 
 <div class="langues">
