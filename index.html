@@ -12,11 +12,16 @@
   le seul qui serve la racine du domaine. Les pages de confidentialité et d'assistance,
   elles, sont dans leurs propres dépôts et servent des sous-dossiers.
 
-  ⚠️ **Une seule langue à la fois.** La version précédente empilait le français puis
-  l'anglais séparés par un filet : tout lecteur voyait la moitié de la page dans une
-  langue qu'il ne lisait pas. Désormais la page suit `navigator.language`, exactement
-  comme le jeu suit la langue de l'appareil — et un discret sélecteur permet d'en
-  changer. Sans JavaScript, le français reste visible : mieux vaut une langue que rien.
+  ⚠️ **Une seule langue à la fois, et l'anglais par défaut.** La version précédente
+  empilait le français puis l'anglais séparés par un filet : tout lecteur voyait la
+  moitié de la page dans une langue qu'il ne lisait pas. Désormais un seul bloc
+  s'affiche, en anglais, avec un sélecteur pour passer au français.
+
+  ⚠️ Ne pas « rétablir » la détection par `navigator.language` : elle a été essayée
+  puis retirée le 30 août 2026. Contrairement au jeu — qui suit la langue de
+  l'appareil parce qu'il s'adresse à son joueur —, cette page s'adresse d'abord à des
+  rédactions et à des plateformes de découverte internationales. Sans JavaScript,
+  l'anglais reste visible : mieux vaut une langue que rien.
 
   Même palette et même typographie que les deux autres pages publiées.
 -->
@@ -104,21 +109,23 @@
   }
   .langues button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* Sans JavaScript, `[hidden]` ne s'applique jamais : le français s'affiche, et
-     l'anglais reste caché par cette règle. Une langue vaut mieux que deux empilées.
+  /* Sans JavaScript, `[hidden]` ne s'applique jamais : l'anglais s'affiche, et le
+     français reste caché par cette règle. Une langue vaut mieux que deux empilées,
+     et c'est l'anglais qui sert de défaut ici — voir le script en bas de page.
 
-     ⚠️ Le sélecteur DOIT être limité à `main`. Écrit `[lang="en"]` tout court, il
-     visait aussi la balise `<html>` — sur laquelle le script pose la langue choisie —
-     et cliquer sur « English » effaçait la page entière. Corrigé le 30 août 2026. */
-  main[lang="en"] { display: none; }
+     ⚠️ Le sélecteur DOIT être limité à `main`. Écrit `[lang="fr"]` tout court, il
+     viserait aussi la balise `<html>` — sur laquelle le script pose la langue choisie —
+     et cliquer sur « Français » effacerait la page entière. Piège rencontré le
+     30 août 2026 dans l'autre sens. */
+  main[lang="fr"] { display: none; }
 </style>
 
 <div class="langues">
-  <button type="button" data-lang="fr" aria-pressed="true">Français</button>
-  <button type="button" data-lang="en" aria-pressed="false">English</button>
+  <button type="button" data-lang="en" aria-pressed="true">English</button>
+  <button type="button" data-lang="fr" aria-pressed="false">Français</button>
 </div>
 
-<main lang="fr">
+<main lang="fr" hidden>
 
 <p class="label">Fathi Rouassi</p>
 <h1>Be the One</h1>
@@ -148,7 +155,7 @@
 
 </main>
 
-<main lang="en" hidden>
+<main lang="en">
 
 <p class="label">Fathi Rouassi</p>
 <h1>Be the One</h1>
@@ -179,9 +186,7 @@
 </main>
 
 <script>
-  // La langue suit le navigateur, sans réglage — même principe que dans le jeu, où
-  // elle suit l'appareil. Tout ce qui n'est pas français bascule en anglais : c'est
-  // la langue par défaut de la fiche App Store, donc le meilleur repli.
+  // Un seul bloc de langue visible à la fois. Le choix par défaut est plus bas.
   const sections = document.querySelectorAll("main");
   const boutons = document.querySelectorAll(".langues button");
 
@@ -189,15 +194,18 @@
     sections.forEach(s => {
       const ok = s.lang === langue;
       s.hidden = !ok;
-      // On lève aussi la règle CSS de repli, qui masque l'anglais sans JavaScript.
+      // On lève aussi la règle CSS de repli, qui masque le français sans JavaScript.
       s.style.display = ok ? "block" : "none";
     });
     boutons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === langue)));
     document.documentElement.lang = langue;
   }
 
-  const preferee = (navigator.language || "fr").toLowerCase().startsWith("fr") ? "fr" : "en";
-  afficher(preferee);
+  // ⚠️ **L'anglais est le défaut, quelle que soit la langue du navigateur.** Contrairement
+  // au jeu, qui suit l'appareil, cette page s'adresse d'abord à un public international :
+  // rédactions, plateformes de découverte, joueurs du monde entier. Le français reste à
+  // un clic. Décidé le 30 août 2026, après avoir essayé la détection automatique.
+  afficher("en");
 
   boutons.forEach(b => b.addEventListener("click", () => afficher(b.dataset.lang)));
 </script>
