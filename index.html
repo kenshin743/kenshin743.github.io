@@ -80,6 +80,16 @@
   .card p { margin: 0; }
   .card p + p { margin-top: 8px; }
 
+  /* Le badge PixelPicked. Hors des blocs de langue : c'est une image, elle n'a rien
+     à traduire, et la dupliquer ferait deux requêtes pour un seul affichage. */
+  .badges {
+    max-width: 680px;
+    margin: 56px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid var(--edge);
+  }
+  .badges img { display: block; border: 0; }
+
   /* Le sélecteur de langue : deux boutons discrets, alignés à droite au-dessus du
      titre. Assez visibles pour être trouvés, assez sobres pour ne pas voler la
      vedette au nom du jeu. */
@@ -184,6 +194,23 @@
 </div>
 
 </main>
+
+<!--
+  Badge de vérification PixelPicked. Le jeu y a été approuvé le 30 août 2026 sous
+  l'identifiant `6ZNiDaWZWnV`. Coller ce badge ici puis valider l'URL chez eux donne
+  la coche « vérifié », 25 points, et **+50 % sur tout le reste** — c'est leur système
+  de classement, donc ça compte pour le vote hebdomadaire.
+
+  ⚠️ Ne pas déplacer dans un bloc `<main lang="…">` : le badge n'a rien à traduire, et
+  il doit rester visible quelle que soit la langue choisie. C'est aussi pour ça qu'il
+  vit après les deux `</main>`.
+-->
+<div class="badges">
+  <a href="https://pixelpicked.com/game/6ZNiDaWZWnV/be-the-one-1/" target="_blank" rel="noopener">
+    <img src="https://api.pixelpicked.com/api/badges/6ZNiDaWZWnV/live.png?theme=dark"
+         width="250" height="54" alt="Approved on PixelPicked" />
+  </a>
+</div>
 
 <script>
   // Un seul bloc de langue visible à la fois. Le choix par défaut est plus bas.
