@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raftio — calcul de toiture</title>
+<meta name="description" content="Raftio calcule votre toiture aux côtes exactes : longueur de chevron, pente, arêtiers et noues, surface de couverture, plan PDF.">
+<style>
+:root{--bg:#f4f6f9;--sheet:#ffffff;--ink:#1c2b3a;--muted:#5a6b7d;--accent:#14406b;--accent2:#1d5590;--amber:#c07c10;--amber2:#f0a93b;--line:#d8dfe8;--grid:#14406b14}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}}
+:root[data-theme="dark"]{--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;margin:0;padding:0 16px}
+main{max-width:860px;margin:0 auto;padding:56px 0 64px}
+header{text-align:center;margin-bottom:40px}
+h1{font-size:2.4rem;letter-spacing:.02em;color:var(--accent);margin:0}
+.tag{color:var(--muted);font-size:1.1rem;margin:8px 0 0}
+.hero{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:8px;margin:32px 0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.hero svg{display:block;width:100%;height:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:32px 0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:1rem;color:var(--accent2)}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin:3px;color:var(--muted);font-size:.85rem}
+.langs{text-align:center;margin:24px 0}
+footer{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:48px;padding-top:20px;text-align:center}
+a{color:var(--amber)}
+.stores{text-align:center;color:var(--muted);margin:8px 0 0;font-size:.95rem}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Raftio</h1>
+<p class="tag">La toiture juste, du premier coup. Chevrons, pente, arêtiers et noues — et le plan coté en PDF.</p>
+<p class="stores">Bientôt sur l'App Store et Google Play.</p>
+</header>
+
+<div class="hero" aria-label="Plan de toiture coté, style bleu d'architecte">
+<svg viewBox="0 0 800 360" role="img">
+  <g stroke="#f0a93b" stroke-width="2.5" fill="none">
+    <path d="M90 300 L190 300 L190 255 L290 255 L290 210 L390 210 L390 165 L490 165 L490 120 L590 120 L590 75 L690 75"/>
+  </g>
+  <g stroke="#7fa8d0" stroke-width="1.2" fill="none" opacity="0.9">
+    <line x1="90" y1="318" x2="690" y2="318"/>
+    <line x1="90" y1="312" x2="90" y2="324"/><line x1="690" y1="312" x2="690" y2="324"/>
+    <line x1="712" y1="300" x2="712" y2="75"/>
+    <line x1="706" y1="300" x2="718" y2="300"/><line x1="706" y1="75" x2="718" y2="75"/>
+    <line x1="90" y1="300" x2="690" y2="75" stroke-dasharray="6 5" opacity="0.65"/>
+  </g>
+  <g font-family="IBM Plex Sans,-apple-system,sans-serif" font-size="15" fill="#7fa8d0">
+    <text x="390" y="342" text-anchor="middle">reculement 273,5 cm</text>
+    <text x="748" y="192" text-anchor="middle" transform="rotate(90 748 192)">à monter 274 cm</text>
+    <text x="330" y="150" transform="rotate(-21 330 150)" fill="#f0a93b">2h + g = 63 · idéal</text>
+  </g>
+</svg>
+</div>
+
+<div class="grid">
+<div class="card"><h3>Les bonnes cotes, tout de suite</h3><p>Entrez la largeur du bâtiment et la pente : Raftio donne la longueur de chevron, la hauteur du faîtage, la surface et le nombre de chevrons — et vérifie que la pente est dans la plage des couvertures courantes.</p></div>
+<div class="card"><h3>2 versants, appentis, 4 pans, en L</h3><p>Arêtiers, noues, faîtière, débords : chaque forme de toit a sa vue dessinée et cotée, en degrés comme en x/12.</p></div>
+<div class="card"><h3>Le plan en PDF</h3><p>Exportez le plan coté en un geste, prêt à joindre au devis ou à emporter sur le chantier.</p></div>
+<div class="card"><h3>Vos unités</h3><p>Millimètres, centimètres ou pouces — les cotes affichées sont exactes, jamais arrondies en douce.</p></div>
+</div>
+
+<div class="langs">
+<span class="badge">Français</span><span class="badge">English</span><span class="badge">Deutsch</span><span class="badge">Español</span><span class="badge">Italiano</span><span class="badge">Português</span><span class="badge">Nederlands</span>
+</div>
+
+<footer>
+<p><a href="confidentialite.html">Règles de confidentialité</a> · <a href="privacy.html">Privacy policy</a> · <a href="mailto:rouassif74@gmail.com">Contact</a></p>
+<p>© 2026 Weekom — Raftio</p>
+</footer>
+</main>
+</body>
+</html>
