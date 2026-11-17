@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raftio — calcul de toiture</title>
-<meta name="description" content="Raftio calcule votre toiture aux côtes exactes : longueur de chevron, pente, arêtiers et noues, surface de couverture, plan PDF.">
+<meta name="description" content="Raftio calcule votre toiture aux cotes exactes : longueur de chevron, pente, arêtiers et noues, surface de couverture, plan PDF.">
 <style>
 :root{--bg:#f4f6f9;--sheet:#ffffff;--ink:#1c2b3a;--muted:#5a6b7d;--accent:#14406b;--accent2:#1d5590;--amber:#c07c10;--amber2:#f0a93b;--line:#d8dfe8;--grid:#14406b14}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}}
@@ -26,6 +26,7 @@ h1{font-size:2.4rem;letter-spacing:.02em;color:var(--accent);margin:0}
 footer{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:48px;padding-top:20px;text-align:center}
 a{color:var(--amber)}
 .stores{text-align:center;color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.stores a{color:#f0a93b;text-decoration:none;font-weight:600}.stores a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -33,25 +34,28 @@ a{color:var(--amber)}
 <header>
 <h1>Raftio</h1>
 <p class="tag">La toiture juste, du premier coup. Chevrons, pente, arêtiers et noues — et le plan coté en PDF.</p>
-<p class="stores">Bientôt sur l'App Store et Google Play.</p>
+<p class="stores">Disponible sur l'<a href="https://apps.apple.com/app/id6832261790">App Store</a> et <a href="https://play.google.com/store/apps/details?id=com.weekom.raftio">Google Play</a>.</p>
 </header>
 
 <div class="hero" aria-label="Plan de toiture coté, style bleu d'architecte">
 <svg viewBox="0 0 800 360" role="img">
-  <g stroke="#f0a93b" stroke-width="2.5" fill="none">
-    <path d="M90 300 L190 300 L190 255 L290 255 L290 210 L390 210 L390 165 L490 165 L490 120 L590 120 L590 75 L690 75"/>
+  <!-- Toit à deux versants : bâtiment 8 m, pente 35°, débord 30 cm (mêmes valeurs que l'app). -->
+  <g stroke="#f0a93b" stroke-width="2.5" fill="none" stroke-linejoin="round">
+    <path d="M90 282 L400 65 L710 282"/>
   </g>
   <g stroke="#7fa8d0" stroke-width="1.2" fill="none" opacity="0.9">
-    <line x1="90" y1="318" x2="690" y2="318"/>
-    <line x1="90" y1="312" x2="90" y2="324"/><line x1="690" y1="312" x2="690" y2="324"/>
-    <line x1="712" y1="300" x2="712" y2="75"/>
-    <line x1="706" y1="300" x2="718" y2="300"/><line x1="706" y1="75" x2="718" y2="75"/>
-    <line x1="90" y1="300" x2="690" y2="75" stroke-dasharray="6 5" opacity="0.65"/>
+    <line x1="118" y1="262" x2="682" y2="262"/>
+    <rect x="124" y="262" width="16" height="48"/><rect x="660" y="262" width="16" height="48"/>
+    <line x1="124" y1="330" x2="676" y2="330"/>
+    <line x1="124" y1="324" x2="124" y2="336"/><line x1="676" y1="324" x2="676" y2="336"/>
+    <line x1="400" y1="262" x2="400" y2="65" stroke-dasharray="6 5" opacity="0.65"/>
+    <path d="M190 262 A90 90 0 0 1 198 230" opacity="0.8"/>
   </g>
   <g font-family="IBM Plex Sans,-apple-system,sans-serif" font-size="15" fill="#7fa8d0">
-    <text x="390" y="342" text-anchor="middle">reculement 273,5 cm</text>
-    <text x="748" y="192" text-anchor="middle" transform="rotate(90 748 192)">à monter 274 cm</text>
-    <text x="330" y="150" transform="rotate(-21 330 150)" fill="#f0a93b">2h + g = 63 · idéal</text>
+    <text x="400" y="352" text-anchor="middle">largeur 800 cm</text>
+    <text x="418" y="170" text-anchor="start">faîtage 280,1 cm</text>
+    <text x="214" y="250" text-anchor="start">35°</text>
+    <text x="236" y="140" transform="rotate(-35 236 140)" fill="#f0a93b">chevron 524,9 cm</text>
   </g>
 </svg>
 </div>
