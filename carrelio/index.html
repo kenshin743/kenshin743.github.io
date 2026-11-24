@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrelio — calcul de carrelage</title>
+<meta name="description" content="Carrelio dessine votre calepinage carreau par carreau : coupes contre les murs, nombre de carreaux et de boîtes, colle, joint et plinthes, verdict selon les règles de pose. Sol, sol en L, diagonale, mur avec porte, fenêtre ou niche, plan PDF.">
+<style>
+:root{--bg:#f4f6f9;--sheet:#ffffff;--ink:#1c2b3a;--muted:#5a6b7d;--accent:#14406b;--accent2:#1d5590;--amber:#c07c10;--amber2:#f0a93b;--line:#d8dfe8;--grid:#14406b14}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}}
+:root[data-theme="dark"]{--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;margin:0;padding:0 16px}
+main{max-width:860px;margin:0 auto;padding:56px 0 64px}
+header{text-align:center;margin-bottom:40px}
+h1{font-size:2.4rem;letter-spacing:.02em;color:var(--accent);margin:0}
+.tag{color:var(--muted);font-size:1.1rem;margin:8px 0 0}
+.hero{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:8px;margin:32px 0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.hero svg{display:block;width:100%;height:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:32px 0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:1rem;color:var(--accent2)}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin:3px;color:var(--muted);font-size:.85rem}
+.langs{text-align:center;margin:24px 0}
+footer{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:48px;padding-top:20px;text-align:center}
+a{color:var(--amber)}
+.stores{text-align:center;color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.stores span{color:#f0a93b;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Carrelio</h1>
+<p class="tag">Le calepinage avant la première coupe. Combien de carreaux, combien de boîtes, et pas de coupe de 3&nbsp;cm contre le mur.</p>
+<p class="stores">Bientôt sur l'<span>App Store</span> et <span>Google Play</span>.</p>
+</header>
+
+<div class="hero" aria-label="Calepinage d'un sol, vue de dessus : carreaux entiers en blanc, coupes en ambre, cotes">
+<svg viewBox="0 0 800 360" role="img">
+  <style>.full{fill:#ffffff;fill-opacity:.14;stroke:#7fa8d0;stroke-width:1.5}.cut{fill:#f0a93b;fill-opacity:.25;stroke:#f0a93b;stroke-width:1.5}</style>
+  <rect x="105" y="55" width="536" height="344" fill="none" stroke="#e8eef5" stroke-width="2.5"/>
+  <rect x="110" y="60" width="90" height="90" rx="3" class="full"/><rect x="206" y="60" width="90" height="90" rx="3" class="full"/><rect x="302" y="60" width="90" height="90" rx="3" class="full"/><rect x="398" y="60" width="90" height="90" rx="3" class="full"/><rect x="494" y="60" width="90" height="90" rx="3" class="full"/><rect x="590" y="60" width="46" height="90" rx="3" class="cut"/><rect x="110" y="156" width="90" height="90" rx="3" class="full"/><rect x="206" y="156" width="90" height="90" rx="3" class="full"/><rect x="302" y="156" width="90" height="90" rx="3" class="full"/><rect x="398" y="156" width="90" height="90" rx="3" class="full"/><rect x="494" y="156" width="90" height="90" rx="3" class="full"/><rect x="590" y="156" width="46" height="90" rx="3" class="cut"/><rect x="110" y="252" width="90" height="90" rx="3" class="full"/><rect x="206" y="252" width="90" height="90" rx="3" class="full"/><rect x="302" y="252" width="90" height="90" rx="3" class="full"/><rect x="398" y="252" width="90" height="90" rx="3" class="full"/><rect x="494" y="252" width="90" height="90" rx="3" class="full"/><rect x="590" y="252" width="46" height="90" rx="3" class="cut"/><rect x="110" y="348" width="90" height="46" rx="3" class="cut"/><rect x="206" y="348" width="90" height="46" rx="3" class="cut"/><rect x="302" y="348" width="90" height="46" rx="3" class="cut"/><rect x="398" y="348" width="90" height="46" rx="3" class="cut"/><rect x="494" y="348" width="90" height="46" rx="3" class="cut"/><rect x="590" y="348" width="46" height="46" rx="3" class="cut"/>
+  <g stroke="#f0a93b" stroke-width="1.4" fill="none">
+    <line x1="105" y1="422" x2="641" y2="422"/>
+    <line x1="105" y1="416" x2="105" y2="428"/><line x1="641" y1="416" x2="641" y2="428"/>
+    <line x1="80" y1="55" x2="80" y2="399"/>
+    <line x1="74" y1="55" x2="86" y2="55"/><line x1="74" y1="399" x2="86" y2="399"/>
+  </g>
+  <circle cx="110" cy="60" r="5" fill="none" stroke="#f0a93b" stroke-width="2"/>
+  <g font-family="IBM Plex Sans,-apple-system,sans-serif" font-size="15" fill="#7fa8d0">
+    <text x="373" y="446" text-anchor="middle">longueur 400 cm</text>
+    <text x="66" y="227" text-anchor="middle" transform="rotate(-90 66 227)">largeur 300 cm</text>
+    <text x="676" y="227" text-anchor="middle" fill="#f0a93b" transform="rotate(90 676 227)">coupes 37,2 cm · 57,8 cm</text>
+  </g>
+</svg>
+</div>
+
+<div class="grid">
+<div class="card"><h3>Les coupes, avant de commencer</h3><p>Carrelio dessine la pose carreau par carreau et mesure chaque coupe contre les murs. En dessous d'un demi-carreau, il vous prévient.</p></div>
+<div class="card"><h3>Pour passer au vert</h3><p>Décaler le point de départ de quelques centimètres, centrer, tourner la pose, passer en décalé 1/3, élargir le joint : un seul réglage à la fois, votre pièce ne bouge pas.</p></div>
+<div class="card"><h3>Ce qu'il faut acheter</h3><p>Carreaux et boîtes (en m² ou en nombre), colle en kg et en sacs selon le format, mortier de joint, plinthes. Les chutes réutilisables sont comptées.</p></div>
+<div class="card"><h3>Sol, L, diagonale, mur</h3><p>Sol rectangle gratuit ; avec Pro, sol en L, pose à 45°, mur avec porte, fenêtre ou niche, et le calepinage coté en PDF pour le devis.</p></div>
+</div>
+
+<div class="langs">
+<span class="badge">Français</span><span class="badge">English</span><span class="badge">Deutsch</span><span class="badge">Español</span><span class="badge">Italiano</span><span class="badge">Português</span><span class="badge">Nederlands</span><span class="badge">日本語</span><span class="badge">한국어</span><span class="badge">Bahasa Indonesia</span><span class="badge">Svenska</span><span class="badge">Norsk</span><span class="badge">Dansk</span><span class="badge">Suomi</span><span class="badge">Polski</span><span class="badge">Čeština</span><span class="badge">Magyar</span><span class="badge">Română</span><span class="badge">Türkçe</span><span class="badge">Українська</span><span class="badge">العربية</span><span class="badge">עברית</span>
+</div>
+
+<footer>
+<p><a href="confidentialite.html">Règles de confidentialité</a> · <a href="privacy.html">Privacy policy</a> · <a href="mailto:rouassif74@gmail.com">Contact</a></p>
+<p>© 2026 Weekom — Carrelio</p>
+</footer>
+</main>
+</body>
+</html>
