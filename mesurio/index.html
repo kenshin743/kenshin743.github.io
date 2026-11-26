@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesurio — feet, inches and fractions calculator</title>
+<meta name="description" content="Mesurio is a construction calculator in feet, inches and fractions, with no subscription. Areas, volumes, unit conversion, stairs, concrete, pitch and even spacing. Free calculator, one-time Pro purchase.">
+<style>
+:root{--bg:#f4f6f9;--sheet:#ffffff;--ink:#1c2b3a;--muted:#5a6b7d;--accent:#14406b;--accent2:#1d5590;--amber:#c07c10;--amber2:#f0a93b;--line:#d8dfe8;--grid:#14406b14}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}}
+:root[data-theme="dark"]{--bg:#0b1420;--sheet:#102a44;--ink:#e8eef5;--muted:#9fb0c2;--accent:#7fa8d0;--accent2:#9cc0e4;--amber:#f0a93b;--amber2:#f0a93b;--line:#24364c;--grid:#7fa8d01a}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;margin:0;padding:0 16px}
+main{max-width:860px;margin:0 auto;padding:56px 0 64px}
+header{text-align:center;margin-bottom:40px}
+h1{font-size:2.4rem;letter-spacing:.02em;color:var(--accent);margin:0}
+.tag{color:var(--muted);font-size:1.1rem;margin:8px 0 0}
+.hero{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:8px;margin:32px 0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.hero svg{display:block;width:100%;height:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:32px 0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:1rem;color:var(--accent2)}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin:3px;color:var(--muted);font-size:.85rem}
+.langs{text-align:center;margin:24px 0}
+footer{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:48px;padding-top:20px;text-align:center}
+a{color:var(--amber)}
+.stores{text-align:center;color:var(--muted);margin:8px 0 0;font-size:.95rem}
+.stores span{color:#f0a93b;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Mesurio</h1>
+<p class="tag">No subscription. A feet, inches and fractions calculator for the jobsite: free to use, pay once for Pro, keep it forever.</p>
+<p class="stores">Coming soon to the <span>App Store</span> and <span>Google Play</span>.</p>
+</header>
+
+<div class="hero" aria-label="A calculation in feet, inches and fractions above a tape measure">
+<svg viewBox="0 0 800 300" role="img">
+  <g font-family="IBM Plex Sans,-apple-system,sans-serif" text-anchor="end">
+    <text x="740" y="70" font-size="26" fill="#7fa8d0">5' 7 3/8" + 2' 4 1/2"</text>
+    <text x="740" y="140" font-size="58" font-weight="700" fill="#e8eef5">7' 11 7/8"</text>
+  </g>
+  <rect x="60" y="180" width="680" height="80" rx="10" fill="#ffffff" fill-opacity=".92"/>
+  <g stroke="#0e2f4f" stroke-width="4">
+    <line x1="100" y1="180" x2="100" y2="230"/><line x1="137.5" y1="180" x2="137.5" y2="198"/><line x1="175" y1="180" x2="175" y2="206"/><line x1="250" y1="180" x2="250" y2="216"/><line x1="287.5" y1="180" x2="287.5" y2="198"/><line x1="325" y1="180" x2="325" y2="206"/><line x1="362.5" y1="180" x2="362.5" y2="198"/><line x1="400" y1="180" x2="400" y2="230"/><line x1="437.5" y1="180" x2="437.5" y2="198"/><line x1="475" y1="180" x2="475" y2="206"/><line x1="512.5" y1="180" x2="512.5" y2="198"/><line x1="550" y1="180" x2="550" y2="216"/><line x1="587.5" y1="180" x2="587.5" y2="198"/><line x1="625" y1="180" x2="625" y2="206"/><line x1="662.5" y1="180" x2="662.5" y2="198"/><line x1="700" y1="180" x2="700" y2="230"/>
+  </g>
+  <line x1="212.5" y1="180" x2="212.5" y2="200" stroke="#f0a93b" stroke-width="6"/>
+  <g stroke="#f0a93b" stroke-width="2.5" fill="none"><line x1="100" y1="282" x2="212.5" y2="282"/><line x1="100" y1="274" x2="100" y2="290"/><line x1="212.5" y1="274" x2="212.5" y2="290"/></g>
+  <text x="228" y="288" font-family="IBM Plex Sans,-apple-system,sans-serif" font-size="16" fill="#f0a93b">3/8"</text>
+</svg>
+</div>
+
+<div class="grid">
+<div class="card"><h3>Type it like you read it</h3><p>5' 7 3/8" + 2' 4 1/2". The answer comes back in feet, inches and fractions, rounded to the 1/16 (or 1/2 to 1/64), ready to mark.</p></div>
+<div class="card"><h3>Areas, volumes, metric</h3><p>12' × 10' × 4" gives square feet, cubic feet and cubic yards. One tap converts to meters, centimeters or millimeters.</p></div>
+<div class="card"><h3>Jobsite tools</h3><p>Pitch and diagonal, stairs, concrete in yards and bags, even spacing for balusters and pickets.</p></div>
+<div class="card"><h3>No subscription</h3><p>The calculator is free, with no ads and no account. Mesurio Pro is a one-time purchase: you pay once and keep it forever.</p></div>
+</div>
+
+<div class="langs">
+<span class="badge">Français</span><span class="badge">English</span><span class="badge">Deutsch</span><span class="badge">Español</span><span class="badge">Italiano</span><span class="badge">Português</span><span class="badge">Nederlands</span><span class="badge">日本語</span><span class="badge">한국어</span><span class="badge">Bahasa Indonesia</span><span class="badge">Svenska</span><span class="badge">Norsk</span><span class="badge">Dansk</span><span class="badge">Suomi</span><span class="badge">Polski</span><span class="badge">Čeština</span><span class="badge">Magyar</span><span class="badge">Română</span><span class="badge">Türkçe</span><span class="badge">Українська</span><span class="badge">العربية</span><span class="badge">עברית</span>
+</div>
+
+<footer>
+<p><a href="privacy.html">Privacy policy</a> · <a href="confidentialite.html">Règles de confidentialité</a> · <a href="mailto:rouassif74@gmail.com">Contact</a></p>
+<p>© 2026 Weekom — Mesurio</p>
+</footer>
+</main>
+</body>
+</html>
